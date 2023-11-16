@@ -47,6 +47,11 @@ class _ProfilePageState extends State<ProfilePage> {
                 builder: (context) => AlertDialog(
                   title: Text("Error! ${response.statusCode}"),
                   content: Text("${response.data}"),
+                  actions: [
+                    ElevatedButton(
+                        onPressed: () => Navigator.pop(context),
+                        child: const Text("Close"))
+                  ],
                 ),
               );
             }
@@ -57,6 +62,11 @@ class _ProfilePageState extends State<ProfilePage> {
               builder: (context) => AlertDialog(
                 title: const Text("Error!"),
                 content: Text("$err"),
+                actions: [
+                  ElevatedButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: const Text("Close"))
+                ],
               ),
             );
           }
@@ -67,6 +77,11 @@ class _ProfilePageState extends State<ProfilePage> {
           builder: (context) => AlertDialog(
             title: const Text("Error!"),
             content: Text("$err"),
+            actions: [
+              ElevatedButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: const Text("Close"))
+            ],
           ),
         );
         // print('Error $err');
@@ -77,6 +92,11 @@ class _ProfilePageState extends State<ProfilePage> {
         builder: (context) => AlertDialog(
           title: const Text("Error!"),
           content: Text("$err"),
+          actions: [
+            ElevatedButton(
+                onPressed: () => Navigator.pop(context),
+                child: const Text("Close"))
+          ],
         ),
       );
       // print('Error occurred outside $err');
