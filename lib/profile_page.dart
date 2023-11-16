@@ -25,7 +25,7 @@ class _ProfilePageState extends State<ProfilePage> {
 
   signIn() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-
+    await googleSignIn.signOut();
     googleSignIn.signIn().then((result) {
       result?.authentication.then((googleKey) async {
         // print(googleKey.accessToken);
