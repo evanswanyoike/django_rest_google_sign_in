@@ -55,7 +55,7 @@ class _RequestsPageState extends State<RequestsPage> {
               children: [
                 ExpansionTile(
                   title: const Text("User"),
-                  initiallyExpanded: false,
+                  initiallyExpanded: true,
                   children: [
                     ListTile(
                       title: const Text("User Id"),
