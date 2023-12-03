@@ -1,5 +1,5 @@
+import 'package:bottom_blur_bar/bottom_blur_bar.dart';
 import 'package:django_google/profile_page.dart';
-import 'package:django_google/requests_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,12 +16,16 @@ class MyApp extends StatelessWidget {
       title: "Google Sign In",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        primaryColor: Colors.indigo,
         useMaterial3: true,
+        brightness: Brightness.light,
       ),
       darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
+        primaryColor: Colors.indigo,
         useMaterial3: true,
+        brightness: Brightness.dark,
       ),
       themeMode: ThemeMode.system,
       home: const LandingPage(),
@@ -46,26 +50,35 @@ class _LandingPageState extends State<LandingPage> {
       appBar: AppBar(
         title: const Text("Google Sign In"),
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BlurNavbar(
         currentIndex: currentIndex,
+        selectedColor: Colors.indigo,
+        borderRadius: 10.0,
+        fontSize: 1.0,
         onTap: (page) {
           setState(() {
             currentIndex = page;
             pageController.jumpToPage(currentIndex);
           });
+          print(currentIndex);
         },
-        items: const [
-          BottomNavigationBarItem(
-              icon: Icon(Icons.dashboard_sharp), label: "Dashboard"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Account"),
+        style: BlurEffectStyle.auto,
+        items: [
+          BlurNavbarItem(icon: const Icon(Icons.messenger), title: ""),
+          BlurNavbarItem(icon: const Icon(Icons.image_sharp), title: ""),
+          BlurNavbarItem(icon: const Icon(Icons.video_collection), title: ""),
+          BlurNavbarItem(icon: const Icon(Icons.person), title: "Account"),
         ],
       ),
+      // body: Center(child: Text("-$currentIndex")),
       body: PageView(
         controller: pageController,
         physics: const NeverScrollableScrollPhysics(),
-        children: const [
-          RequestsPage(),
-          ProfilePage(),
+        children: [
+          Center(child: Text("-$currentIndex")),
+          Center(child: Text("-$currentIndex")),
+          Center(child: Text("-$currentIndex")),
+          const ProfilePage(),
         ],
       ),
     );

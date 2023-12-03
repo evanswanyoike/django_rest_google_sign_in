@@ -41,6 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  bottom_blur_bar:
+    dependency: "direct main"
+    description:
+      name: bottom_blur_bar
+      sha256: d19b85860bb8d3f768ff8f6681b79c9ed77a03bd427d696951f7d727b0f98564
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.1"
   characters:
     dependency: transitive
     description:
